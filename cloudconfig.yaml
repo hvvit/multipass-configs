@@ -1,0 +1,7 @@
+#cloud-config
+chpasswd: { expire: False  }
+sudo: ALL=(ALL) NOPASSWD:ALL
+runcmd:
+  - echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBdCdSxgTSXguvdN3O/DXPAMzgzRU9XNWsvb714bPDDb5MfSpdqHgVa0lvIUubNtUbqFTmgggwXgtUSx6Vx1qxK/zaeYWDX3mFPnnc2Dg/AlwJYaj5nTNASAp1bCGwZ1sE1bHkfgZMKxvDUsdvsNpGF+73304YQOxuTdbRjccGHsFwOuQ+caGfXw7jSHToDTsrNsqtTwGmQX9CBKFBHFyQBuHRbEg6I3bd9f5F6nt/s3PE5UMF6LtKu+pbXQZ+RLDCtic9tPw9jR9DOmZHjRq12Qsr507sIU0MHb/yN2akKNNoZ9OquXZ2rUDaM/VsTU7KaJyQcFCKEq+Xr3uvRLDEM6XN0EVdwEsQ22tijvIfYiMptHdgWWw3rIPyqykHl52zKBKbtGLmz94mbIhOiS5dsfg6anvW7lgDK5/Kf66Ew1J4+zM+sTDwC2w2/ovXiVo5aKCHoex06MT5gIwkEFOSMh886i292d9kfq6EFLFXjMjtjkwF/xdGjcUxAye5Ut8= harsh@harsh-ThinkPad-E14" >> /home/ubuntu/.ssh/authorized_keys
+  - sudo apt-get update && sudo apt-get install build-essential -y && curl -sSL https://get.docker.com/ | sh && usermod -aG docker ubuntu
+  - sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
